@@ -14,9 +14,3 @@ String longestUniqueSubstring(String str) {
   if (subStr.length > maxStr.length) maxStr = [...subStr];
   return maxStr.join();
 }
-
-main() {
-  print(longestUniqueSubstring("abcacbd"));
-  print(longestUniqueSubstring("aaaaaaaa"));
-  print(longestUniqueSubstring("abcde"));
-}

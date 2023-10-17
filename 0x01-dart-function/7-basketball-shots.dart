@@ -9,7 +9,10 @@ int whoWins(Map<String, int> teamA, Map<String, int> teamB) {
   teamBPoints += 2 * (teamB['2 pointer'] ?? 0);
   teamBPoints += 3 * (teamB['3 pointer'] ?? 0);
 
-  if (teamAPoints == teamBPoints) return 0;
-  if (teamAPoints > teamBPoints) return 1;
-  return 2;
+  if (teamAPoints > teamBPoints) {
+    return 1;
+  } else if (teamAPoints < teamBPoints) {
+    return 2;
+  } else
+    return 0;
 }

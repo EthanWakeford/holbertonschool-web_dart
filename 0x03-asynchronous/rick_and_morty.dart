@@ -12,7 +12,7 @@ Future<void> printRmCharacters() async {
       await printCharactersByPage(page, client);
     }
   } catch (err) {
-    print(err);
+    print('error caught: $err');
   } finally {
     client.close();
   }
@@ -21,15 +21,11 @@ Future<void> printRmCharacters() async {
 printCharactersByPage(int page, http.Client client) async {
   final url =
       Uri.https('rickandmortyapi.com', '/api/character/', {'page': '$page'});
-  try {
-    final response = await client.get(url);
-    final List characterResults = jsonDecode(response.body)['results'];
+  final response = await client.get(url);
+  final List characterResults = jsonDecode(response.body)['results'];
 
-    for (final character in characterResults) {
-      print(character['name']);
-    }
-  } catch (err) {
-    print('$err on page: $page');
+  for (final character in characterResults) {
+    print(character['name']);
   }
 }
 
